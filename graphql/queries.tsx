@@ -1,30 +1,25 @@
-export const GET_ALL_POSTS = gql`
-  query getPosts {
-    posts {
-      nodes {
-        title
-        categories {
-          nodes {
-            name
-            categoryId
-            slug
-          }
-        }
-        excerpt
-        slug
-        featuredImage {
-          node {
-            mediaItemUrl
+import { gql } from '@apollo/client';
+
+export const GET_HOME_PAGE = gql`
+  query homePage($id: ID = "home") {
+    page(id: $id, idType: URI) {
+      homePage {
+        fieldGroupName
+        hero {
+          button
+          description
+          fieldGroupName
+          headline
+          subheadline
+          image {
             altText
-            mediaDetails {
-              sizes(include: MEDIUM_LARGE) {
-                height
-                width
-                name
-              }
-            }
+            sourceUrl
           }
         }
+      }
+      seo {
+        title
+        metaDesc
       }
     }
   }

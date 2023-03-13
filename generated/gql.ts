@@ -13,7 +13,7 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel or swc plugin for production.
  */
 const documents = {
-    "\n  query getPosts {\n    posts {\n      nodes {\n        title\n        categories {\n          nodes {\n            name\n            categoryId\n            slug\n          }\n        }\n        excerpt\n        slug\n        featuredImage {\n          node {\n            mediaItemUrl\n            altText\n            mediaDetails {\n              sizes(include: MEDIUM_LARGE) {\n                height\n                width\n                name\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n": types.GetPostsDocument,
+    "\n  query homePage($id: ID = \"home\") {\n    page(id: $id, idType: URI) {\n      homePage {\n        fieldGroupName\n        hero {\n          button\n          description\n          fieldGroupName\n          headline\n          subheadline\n          image {\n            altText\n            link\n          }\n        }\n      }\n      seo {\n        title\n        metaDesc\n      }\n    }\n  }\n": types.HomePageDocument,
 };
 
 /**
@@ -33,7 +33,7 @@ export function graphql(source: string): unknown;
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  query getPosts {\n    posts {\n      nodes {\n        title\n        categories {\n          nodes {\n            name\n            categoryId\n            slug\n          }\n        }\n        excerpt\n        slug\n        featuredImage {\n          node {\n            mediaItemUrl\n            altText\n            mediaDetails {\n              sizes(include: MEDIUM_LARGE) {\n                height\n                width\n                name\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n"): (typeof documents)["\n  query getPosts {\n    posts {\n      nodes {\n        title\n        categories {\n          nodes {\n            name\n            categoryId\n            slug\n          }\n        }\n        excerpt\n        slug\n        featuredImage {\n          node {\n            mediaItemUrl\n            altText\n            mediaDetails {\n              sizes(include: MEDIUM_LARGE) {\n                height\n                width\n                name\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n"];
+export function graphql(source: "\n  query homePage($id: ID = \"home\") {\n    page(id: $id, idType: URI) {\n      homePage {\n        fieldGroupName\n        hero {\n          button\n          description\n          fieldGroupName\n          headline\n          subheadline\n          image {\n            altText\n            link\n          }\n        }\n      }\n      seo {\n        title\n        metaDesc\n      }\n    }\n  }\n"): (typeof documents)["\n  query homePage($id: ID = \"home\") {\n    page(id: $id, idType: URI) {\n      homePage {\n        fieldGroupName\n        hero {\n          button\n          description\n          fieldGroupName\n          headline\n          subheadline\n          image {\n            altText\n            link\n          }\n        }\n      }\n      seo {\n        title\n        metaDesc\n      }\n    }\n  }\n"];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};

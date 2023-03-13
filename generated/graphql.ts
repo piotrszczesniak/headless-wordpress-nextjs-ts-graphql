@@ -103,6 +103,8 @@ export type Category = DatabaseIdentifier & HierarchicalNode & HierarchicalTermN
   parentId?: Maybe<Scalars['ID']>;
   /** Connection between the Category type and the post type */
   posts?: Maybe<CategoryToPostConnection>;
+  /** The Yoast SEO data of the Categories taxonomy. */
+  seo?: Maybe<TaxonomySeo>;
   /** An alphanumeric identifier for the object unique to its type. */
   slug?: Maybe<Scalars['String']>;
   /** Connection between the Category type and the Taxonomy type */
@@ -200,6 +202,8 @@ export type CategoryConnectionPageInfo = {
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -247,6 +251,8 @@ export type CategoryToAncestorsCategoryConnectionPageInfo = CategoryConnectionPa
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -280,6 +286,8 @@ export type CategoryToCategoryConnectionPageInfo = CategoryConnectionPageInfo & 
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -359,6 +367,8 @@ export type CategoryToContentNodeConnectionPageInfo = ContentNodeConnectionPageI
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -441,6 +451,8 @@ export type CategoryToPostConnectionPageInfo = PageInfo & PostConnectionPageInfo
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -644,6 +656,8 @@ export type CommentConnectionPageInfo = {
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -697,6 +711,8 @@ export type CommentToCommentConnectionPageInfo = CommentConnectionPageInfo & Pag
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -970,6 +986,8 @@ export type ContentNode = {
   previewRevisionDatabaseId?: Maybe<Scalars['Int']>;
   /** Whether the object is a node in the preview state */
   previewRevisionId?: Maybe<Scalars['ID']>;
+  /** The Yoast SEO data of the ContentNode */
+  seo?: Maybe<PostTypeSeo>;
   /** The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table. */
   slug?: Maybe<Scalars['String']>;
   /** The current status of the object */
@@ -1024,6 +1042,8 @@ export type ContentNodeConnectionPageInfo = {
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -1096,6 +1116,8 @@ export type ContentNodeToEnqueuedScriptConnectionPageInfo = EnqueuedScriptConnec
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -1129,6 +1151,8 @@ export type ContentNodeToEnqueuedStylesheetConnectionPageInfo = EnqueuedStyleshe
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -1253,6 +1277,8 @@ export type ContentTypeConnectionPageInfo = {
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -1304,6 +1330,8 @@ export type ContentTypeToContentNodeConnectionPageInfo = ContentNodeConnectionPa
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -1377,6 +1405,8 @@ export type ContentTypeToTaxonomyConnectionPageInfo = PageInfo & TaxonomyConnect
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -1980,6 +2010,8 @@ export type EnqueuedScriptConnectionPageInfo = {
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -2029,6 +2061,8 @@ export type EnqueuedStylesheetConnectionPageInfo = {
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -2112,6 +2146,8 @@ export type HierarchicalContentNode = {
   previewRevisionDatabaseId?: Maybe<Scalars['Int']>;
   /** Whether the object is a node in the preview state */
   previewRevisionId?: Maybe<Scalars['ID']>;
+  /** The Yoast SEO data of the ContentNode */
+  seo?: Maybe<PostTypeSeo>;
   /** The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table. */
   slug?: Maybe<Scalars['String']>;
   /** The current status of the object */
@@ -2189,6 +2225,8 @@ export type HierarchicalContentNodeToContentNodeAncestorsConnectionPageInfo = Co
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -2262,6 +2300,8 @@ export type HierarchicalContentNodeToContentNodeChildrenConnectionPageInfo = Con
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -2497,6 +2537,8 @@ export type MediaItem = ContentNode & DatabaseIdentifier & HierarchicalContentNo
   previewRevisionDatabaseId?: Maybe<Scalars['Int']>;
   /** Whether the object is a node in the preview state */
   previewRevisionId?: Maybe<Scalars['ID']>;
+  /** The Yoast SEO data of the ContentNode */
+  seo?: Maybe<PostTypeSeo>;
   /** The sizes attribute value for an image. */
   sizes?: Maybe<Scalars['String']>;
   /** The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table. */
@@ -2631,6 +2673,8 @@ export type MediaItemConnectionPageInfo = {
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -2735,6 +2779,8 @@ export type MediaItemToCommentConnectionPageInfo = CommentConnectionPageInfo & P
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -2882,6 +2928,8 @@ export type MenuConnectionPageInfo = {
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -2975,6 +3023,8 @@ export type MenuItemConnectionPageInfo = {
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -3050,6 +3100,8 @@ export type MenuItemToMenuItemConnectionPageInfo = MenuItemConnectionPageInfo & 
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -3124,6 +3176,8 @@ export type MenuToMenuItemConnectionPageInfo = MenuItemConnectionPageInfo & Page
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -3447,6 +3501,8 @@ export type NodeWithTemplate = {
 export type NodeWithTitle = {
   /** The globally unique ID for the object */
   id: Scalars['ID'];
+  /** The Yoast SEO data of the ContentNode */
+  seo?: Maybe<PostTypeSeo>;
   /** The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made. */
   title?: Maybe<Scalars['String']>;
 };
@@ -3585,6 +3641,8 @@ export type Page = ContentNode & DatabaseIdentifier & HierarchicalContentNode & 
   revisionOf?: Maybe<NodeWithRevisionsToContentNodeConnectionEdge>;
   /** Connection between the Page type and the page type */
   revisions?: Maybe<PageToRevisionConnection>;
+  /** The Yoast SEO data of the ContentNode */
+  seo?: Maybe<PostTypeSeo>;
   /** The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table. */
   slug?: Maybe<Scalars['String']>;
   /** The current status of the object */
@@ -3693,6 +3751,8 @@ export type PageConnectionPageInfo = {
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -3748,6 +3808,8 @@ export type PageToCommentConnectionPageInfo = CommentConnectionPageInfo & PageIn
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -3852,6 +3914,8 @@ export type PageToRevisionConnectionPageInfo = PageConnectionPageInfo & PageInfo
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -3971,6 +4035,8 @@ export type PluginConnectionPageInfo = {
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -4087,6 +4153,8 @@ export type Post = ContentNode & DatabaseIdentifier & MenuItemLinkable & Node & 
   revisionOf?: Maybe<NodeWithRevisionsToContentNodeConnectionEdge>;
   /** Connection between the Post type and the post type */
   revisions?: Maybe<PostToRevisionConnection>;
+  /** The Yoast SEO data of the ContentNode */
+  seo?: Maybe<PostTypeSeo>;
   /** The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table. */
   slug?: Maybe<Scalars['String']>;
   /** The current status of the object */
@@ -4247,6 +4315,8 @@ export type PostConnectionPageInfo = {
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -4285,6 +4355,8 @@ export type PostFormat = DatabaseIdentifier & Node & TermNode & UniformResourceI
   postFormatId?: Maybe<Scalars['Int']>;
   /** Connection between the PostFormat type and the post type */
   posts?: Maybe<PostFormatToPostConnection>;
+  /** The Yoast SEO data of the Formats taxonomy. */
+  seo?: Maybe<TaxonomySeo>;
   /** An alphanumeric identifier for the object unique to its type. */
   slug?: Maybe<Scalars['String']>;
   /** Connection between the PostFormat type and the Taxonomy type */
@@ -4363,6 +4435,8 @@ export type PostFormatConnectionPageInfo = {
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -4410,6 +4484,8 @@ export type PostFormatToContentNodeConnectionPageInfo = ContentNodeConnectionPag
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -4483,6 +4559,8 @@ export type PostFormatToPostConnectionPageInfo = PageInfo & PostConnectionPageIn
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -4708,6 +4786,8 @@ export type PostToCategoryConnectionEdge = CategoryConnectionEdge & Edge & {
   __typename?: 'PostToCategoryConnectionEdge';
   /** A cursor for use in pagination */
   cursor?: Maybe<Scalars['String']>;
+  /** The Yoast SEO Primary category */
+  isPrimary?: Maybe<Scalars['Boolean']>;
   /** The item at the end of the edge */
   node: Category;
 };
@@ -4721,6 +4801,8 @@ export type PostToCategoryConnectionPageInfo = CategoryConnectionPageInfo & Page
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -4800,6 +4882,8 @@ export type PostToCommentConnectionPageInfo = CommentConnectionPageInfo & PageIn
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -4882,6 +4966,8 @@ export type PostToPostFormatConnectionEdge = Edge & PostFormatConnectionEdge & {
   __typename?: 'PostToPostFormatConnectionEdge';
   /** A cursor for use in pagination */
   cursor?: Maybe<Scalars['String']>;
+  /** The Yoast SEO Primary post_format */
+  isPrimary?: Maybe<Scalars['Boolean']>;
   /** The item at the end of the edge */
   node: PostFormat;
 };
@@ -4895,6 +4981,8 @@ export type PostToPostFormatConnectionPageInfo = PageInfo & PostFormatConnection
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -4983,6 +5071,8 @@ export type PostToRevisionConnectionPageInfo = PageInfo & PostConnectionPageInfo
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -5069,6 +5159,8 @@ export type PostToTagConnectionEdge = Edge & TagConnectionEdge & {
   __typename?: 'PostToTagConnectionEdge';
   /** A cursor for use in pagination */
   cursor?: Maybe<Scalars['String']>;
+  /** The Yoast SEO Primary post_tag */
+  isPrimary?: Maybe<Scalars['Boolean']>;
   /** The item at the end of the edge */
   node: Tag;
 };
@@ -5082,6 +5174,8 @@ export type PostToTagConnectionPageInfo = PageInfo & TagConnectionPageInfo & WpP
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -5161,6 +5255,8 @@ export type PostToTermNodeConnectionPageInfo = PageInfo & TermNodeConnectionPage
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -5266,6 +5362,35 @@ export type PostTypeLabelDetails = {
   viewItem?: Maybe<Scalars['String']>;
   /** Label for viewing post type archives. */
   viewItems?: Maybe<Scalars['String']>;
+};
+
+export type PostTypeSeo = {
+  __typename?: 'PostTypeSEO';
+  breadcrumbs?: Maybe<Array<Maybe<SeoPostTypeBreadcrumbs>>>;
+  canonical?: Maybe<Scalars['String']>;
+  cornerstone?: Maybe<Scalars['Boolean']>;
+  focuskw?: Maybe<Scalars['String']>;
+  fullHead?: Maybe<Scalars['String']>;
+  metaDesc?: Maybe<Scalars['String']>;
+  metaKeywords?: Maybe<Scalars['String']>;
+  metaRobotsNofollow?: Maybe<Scalars['String']>;
+  metaRobotsNoindex?: Maybe<Scalars['String']>;
+  opengraphAuthor?: Maybe<Scalars['String']>;
+  opengraphDescription?: Maybe<Scalars['String']>;
+  opengraphImage?: Maybe<MediaItem>;
+  opengraphModifiedTime?: Maybe<Scalars['String']>;
+  opengraphPublishedTime?: Maybe<Scalars['String']>;
+  opengraphPublisher?: Maybe<Scalars['String']>;
+  opengraphSiteName?: Maybe<Scalars['String']>;
+  opengraphTitle?: Maybe<Scalars['String']>;
+  opengraphType?: Maybe<Scalars['String']>;
+  opengraphUrl?: Maybe<Scalars['String']>;
+  readingTime?: Maybe<Scalars['Float']>;
+  schema?: Maybe<SeoPostTypeSchema>;
+  title?: Maybe<Scalars['String']>;
+  twitterDescription?: Maybe<Scalars['String']>;
+  twitterImage?: Maybe<MediaItem>;
+  twitterTitle?: Maybe<Scalars['String']>;
 };
 
 /** Field Group */
@@ -5719,6 +5844,8 @@ export type RootQuery = {
   registeredStylesheets?: Maybe<RootQueryToEnqueuedStylesheetConnection>;
   /** Connection between the RootQuery type and the ContentNode type */
   revisions?: Maybe<RootQueryToRevisionsConnection>;
+  /** Returns seo site data */
+  seo?: Maybe<SeoConfig>;
   /** A 0bject */
   tag?: Maybe<Tag>;
   /** Connection between the RootQuery type and the tag type */
@@ -6132,6 +6259,8 @@ export type RootQueryToCategoryConnectionPageInfo = CategoryConnectionPageInfo &
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -6211,6 +6340,8 @@ export type RootQueryToCommentConnectionPageInfo = CommentConnectionPageInfo & P
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -6306,6 +6437,8 @@ export type RootQueryToContentNodeConnectionPageInfo = ContentNodeConnectionPage
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -6379,6 +6512,8 @@ export type RootQueryToContentTypeConnectionPageInfo = ContentTypeConnectionPage
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -6412,6 +6547,8 @@ export type RootQueryToEnqueuedScriptConnectionPageInfo = EnqueuedScriptConnecti
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -6445,6 +6582,8 @@ export type RootQueryToEnqueuedStylesheetConnectionPageInfo = EnqueuedStylesheet
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -6478,6 +6617,8 @@ export type RootQueryToMediaItemConnectionPageInfo = MediaItemConnectionPageInfo
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -6557,6 +6698,8 @@ export type RootQueryToMenuConnectionPageInfo = MenuConnectionPageInfo & PageInf
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -6600,6 +6743,8 @@ export type RootQueryToMenuItemConnectionPageInfo = MenuItemConnectionPageInfo &
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -6645,6 +6790,8 @@ export type RootQueryToPageConnectionPageInfo = PageConnectionPageInfo & PageInf
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -6724,6 +6871,8 @@ export type RootQueryToPluginConnectionPageInfo = PageInfo & PluginConnectionPag
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -6767,6 +6916,8 @@ export type RootQueryToPostConnectionPageInfo = PageInfo & PostConnectionPageInf
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -6866,6 +7017,8 @@ export type RootQueryToPostFormatConnectionPageInfo = PageInfo & PostFormatConne
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -6945,6 +7098,8 @@ export type RootQueryToRevisionsConnectionPageInfo = ContentNodeConnectionPageIn
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -7018,6 +7173,8 @@ export type RootQueryToTagConnectionPageInfo = PageInfo & TagConnectionPageInfo 
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -7097,6 +7254,8 @@ export type RootQueryToTaxonomyConnectionPageInfo = PageInfo & TaxonomyConnectio
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -7130,6 +7289,8 @@ export type RootQueryToTermNodeConnectionPageInfo = PageInfo & TermNodeConnectio
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -7211,6 +7372,8 @@ export type RootQueryToThemeConnectionPageInfo = PageInfo & ThemeConnectionPageI
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -7244,6 +7407,8 @@ export type RootQueryToUserConnectionPageInfo = PageInfo & UserConnectionPageInf
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -7311,8 +7476,301 @@ export type RootQueryToUserRoleConnectionPageInfo = PageInfo & UserRoleConnectio
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
+};
+
+/** The Yoast SEO breadcrumb config */
+export type SeoBreadcrumbs = {
+  __typename?: 'SEOBreadcrumbs';
+  archivePrefix?: Maybe<Scalars['String']>;
+  boldLast?: Maybe<Scalars['Boolean']>;
+  enabled?: Maybe<Scalars['Boolean']>;
+  homeText?: Maybe<Scalars['String']>;
+  notFoundText?: Maybe<Scalars['String']>;
+  prefix?: Maybe<Scalars['String']>;
+  searchPrefix?: Maybe<Scalars['String']>;
+  separator?: Maybe<Scalars['String']>;
+  showBlogPage?: Maybe<Scalars['Boolean']>;
+};
+
+/** Types of cards */
+export enum SeoCardType {
+  Summary = 'summary',
+  SummaryLargeImage = 'summary_large_image'
+}
+
+/** The Yoast SEO site level configuration data */
+export type SeoConfig = {
+  __typename?: 'SEOConfig';
+  breadcrumbs?: Maybe<SeoBreadcrumbs>;
+  contentTypes?: Maybe<SeoContentTypes>;
+  meta?: Maybe<SeoGlobalMeta>;
+  openGraph?: Maybe<SeoOpenGraph>;
+  redirects?: Maybe<Array<Maybe<SeoRedirect>>>;
+  schema?: Maybe<SeoSchema>;
+  social?: Maybe<SeoSocial>;
+  webmaster?: Maybe<SeoWebmaster>;
+};
+
+/** The Yoast SEO search appearance content types fields */
+export type SeoContentType = {
+  __typename?: 'SEOContentType';
+  archive?: Maybe<SeoContentTypeArchive>;
+  metaDesc?: Maybe<Scalars['String']>;
+  metaRobotsNoindex?: Maybe<Scalars['Boolean']>;
+  schema?: Maybe<SeoPageInfoSchema>;
+  schemaType?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
+};
+
+/** The Yoast SEO search appearance content types fields */
+export type SeoContentTypeArchive = {
+  __typename?: 'SEOContentTypeArchive';
+  archiveLink?: Maybe<Scalars['String']>;
+  breadcrumbTitle?: Maybe<Scalars['String']>;
+  fullHead?: Maybe<Scalars['String']>;
+  hasArchive?: Maybe<Scalars['Boolean']>;
+  metaDesc?: Maybe<Scalars['String']>;
+  metaRobotsFollow?: Maybe<Scalars['String']>;
+  metaRobotsIndex?: Maybe<Scalars['String']>;
+  metaRobotsNofollow?: Maybe<Scalars['Boolean']>;
+  metaRobotsNoindex?: Maybe<Scalars['Boolean']>;
+  title?: Maybe<Scalars['String']>;
+};
+
+/** The Yoast SEO search appearance content types */
+export type SeoContentTypes = {
+  __typename?: 'SEOContentTypes';
+  mediaItem?: Maybe<SeoContentType>;
+  page?: Maybe<SeoContentType>;
+  post?: Maybe<SeoContentType>;
+};
+
+/** The Yoast SEO meta data */
+export type SeoGlobalMeta = {
+  __typename?: 'SEOGlobalMeta';
+  author?: Maybe<SeoGlobalMetaAuthor>;
+  config?: Maybe<SeoGlobalMetaConfig>;
+  date?: Maybe<SeoGlobalMetaDate>;
+  homepage?: Maybe<SeoGlobalMetaHome>;
+  notFound?: Maybe<SeoGlobalMeta404>;
+};
+
+/** The Yoast SEO meta 404 data */
+export type SeoGlobalMeta404 = {
+  __typename?: 'SEOGlobalMeta404';
+  breadcrumb?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
+};
+
+/** The Yoast SEO Author data */
+export type SeoGlobalMetaAuthor = {
+  __typename?: 'SEOGlobalMetaAuthor';
+  description?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
+};
+
+/** The Yoast SEO meta config data */
+export type SeoGlobalMetaConfig = {
+  __typename?: 'SEOGlobalMetaConfig';
+  separator?: Maybe<Scalars['String']>;
+};
+
+/** The Yoast SEO Date data */
+export type SeoGlobalMetaDate = {
+  __typename?: 'SEOGlobalMetaDate';
+  description?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
+};
+
+/** The Yoast SEO homepage data */
+export type SeoGlobalMetaHome = {
+  __typename?: 'SEOGlobalMetaHome';
+  description?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
+};
+
+/** The Open Graph data */
+export type SeoOpenGraph = {
+  __typename?: 'SEOOpenGraph';
+  defaultImage?: Maybe<MediaItem>;
+  frontPage?: Maybe<SeoOpenGraphFrontPage>;
+};
+
+/** The Open Graph Front page data */
+export type SeoOpenGraphFrontPage = {
+  __typename?: 'SEOOpenGraphFrontPage';
+  description?: Maybe<Scalars['String']>;
+  image?: Maybe<MediaItem>;
+  title?: Maybe<Scalars['String']>;
+};
+
+/** The Schema for post type */
+export type SeoPageInfoSchema = {
+  __typename?: 'SEOPageInfoSchema';
+  raw?: Maybe<Scalars['String']>;
+};
+
+export type SeoPostTypeBreadcrumbs = {
+  __typename?: 'SEOPostTypeBreadcrumbs';
+  text?: Maybe<Scalars['String']>;
+  url?: Maybe<Scalars['String']>;
+};
+
+/** The page info SEO details */
+export type SeoPostTypePageInfo = {
+  __typename?: 'SEOPostTypePageInfo';
+  schema?: Maybe<SeoPageInfoSchema>;
+};
+
+/** The Schema types */
+export type SeoPostTypeSchema = {
+  __typename?: 'SEOPostTypeSchema';
+  articleType?: Maybe<Array<Maybe<Scalars['String']>>>;
+  pageType?: Maybe<Array<Maybe<Scalars['String']>>>;
+  raw?: Maybe<Scalars['String']>;
+};
+
+/** The Yoast redirect data  (Yoast Premium only) */
+export type SeoRedirect = {
+  __typename?: 'SEORedirect';
+  format?: Maybe<Scalars['String']>;
+  origin?: Maybe<Scalars['String']>;
+  target?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['Int']>;
+};
+
+/** The Yoast SEO schema data */
+export type SeoSchema = {
+  __typename?: 'SEOSchema';
+  companyLogo?: Maybe<MediaItem>;
+  companyName?: Maybe<Scalars['String']>;
+  companyOrPerson?: Maybe<Scalars['String']>;
+  homeUrl?: Maybe<Scalars['String']>;
+  inLanguage?: Maybe<Scalars['String']>;
+  logo?: Maybe<MediaItem>;
+  personLogo?: Maybe<MediaItem>;
+  personName?: Maybe<Scalars['String']>;
+  siteName?: Maybe<Scalars['String']>;
+  siteUrl?: Maybe<Scalars['String']>;
+  wordpressSiteName?: Maybe<Scalars['String']>;
+};
+
+/** The Yoast SEO Social media links */
+export type SeoSocial = {
+  __typename?: 'SEOSocial';
+  facebook?: Maybe<SeoSocialFacebook>;
+  instagram?: Maybe<SeoSocialInstagram>;
+  linkedIn?: Maybe<SeoSocialLinkedIn>;
+  mySpace?: Maybe<SeoSocialMySpace>;
+  otherSocials?: Maybe<Array<Maybe<Scalars['String']>>>;
+  pinterest?: Maybe<SeoSocialPinterest>;
+  twitter?: Maybe<SeoSocialTwitter>;
+  wikipedia?: Maybe<SeoSocialWikipedia>;
+  youTube?: Maybe<SeoSocialYoutube>;
+};
+
+export type SeoSocialFacebook = {
+  __typename?: 'SEOSocialFacebook';
+  defaultImage?: Maybe<MediaItem>;
+  url?: Maybe<Scalars['String']>;
+};
+
+export type SeoSocialInstagram = {
+  __typename?: 'SEOSocialInstagram';
+  url?: Maybe<Scalars['String']>;
+};
+
+export type SeoSocialLinkedIn = {
+  __typename?: 'SEOSocialLinkedIn';
+  url?: Maybe<Scalars['String']>;
+};
+
+export type SeoSocialMySpace = {
+  __typename?: 'SEOSocialMySpace';
+  url?: Maybe<Scalars['String']>;
+};
+
+export type SeoSocialPinterest = {
+  __typename?: 'SEOSocialPinterest';
+  metaTag?: Maybe<Scalars['String']>;
+  url?: Maybe<Scalars['String']>;
+};
+
+export type SeoSocialTwitter = {
+  __typename?: 'SEOSocialTwitter';
+  cardType?: Maybe<SeoCardType>;
+  username?: Maybe<Scalars['String']>;
+};
+
+export type SeoSocialWikipedia = {
+  __typename?: 'SEOSocialWikipedia';
+  url?: Maybe<Scalars['String']>;
+};
+
+export type SeoSocialYoutube = {
+  __typename?: 'SEOSocialYoutube';
+  url?: Maybe<Scalars['String']>;
+};
+
+/** The Schema types for Taxonomy */
+export type SeoTaxonomySchema = {
+  __typename?: 'SEOTaxonomySchema';
+  raw?: Maybe<Scalars['String']>;
+};
+
+export type SeoUser = {
+  __typename?: 'SEOUser';
+  breadcrumbTitle?: Maybe<Scalars['String']>;
+  canonical?: Maybe<Scalars['String']>;
+  fullHead?: Maybe<Scalars['String']>;
+  language?: Maybe<Scalars['String']>;
+  metaDesc?: Maybe<Scalars['String']>;
+  metaRobotsNofollow?: Maybe<Scalars['String']>;
+  metaRobotsNoindex?: Maybe<Scalars['String']>;
+  opengraphDescription?: Maybe<Scalars['String']>;
+  opengraphImage?: Maybe<MediaItem>;
+  opengraphTitle?: Maybe<Scalars['String']>;
+  region?: Maybe<Scalars['String']>;
+  schema?: Maybe<SeoUserSchema>;
+  social?: Maybe<SeoUserSocial>;
+  title?: Maybe<Scalars['String']>;
+  twitterDescription?: Maybe<Scalars['String']>;
+  twitterImage?: Maybe<MediaItem>;
+  twitterTitle?: Maybe<Scalars['String']>;
+};
+
+/** The Schema types for User */
+export type SeoUserSchema = {
+  __typename?: 'SEOUserSchema';
+  articleType?: Maybe<Array<Maybe<Scalars['String']>>>;
+  pageType?: Maybe<Array<Maybe<Scalars['String']>>>;
+  raw?: Maybe<Scalars['String']>;
+};
+
+export type SeoUserSocial = {
+  __typename?: 'SEOUserSocial';
+  facebook?: Maybe<Scalars['String']>;
+  instagram?: Maybe<Scalars['String']>;
+  linkedIn?: Maybe<Scalars['String']>;
+  mySpace?: Maybe<Scalars['String']>;
+  pinterest?: Maybe<Scalars['String']>;
+  soundCloud?: Maybe<Scalars['String']>;
+  twitter?: Maybe<Scalars['String']>;
+  wikipedia?: Maybe<Scalars['String']>;
+  youTube?: Maybe<Scalars['String']>;
+};
+
+/** The Yoast SEO  webmaster fields */
+export type SeoWebmaster = {
+  __typename?: 'SEOWebmaster';
+  baiduVerify?: Maybe<Scalars['String']>;
+  googleVerify?: Maybe<Scalars['String']>;
+  msVerify?: Maybe<Scalars['String']>;
+  yandexVerify?: Maybe<Scalars['String']>;
 };
 
 /** Input for the sendPasswordResetEmail mutation. */
@@ -7407,6 +7865,8 @@ export type Tag = DatabaseIdentifier & MenuItemLinkable & Node & TermNode & Unif
   name?: Maybe<Scalars['String']>;
   /** Connection between the Tag type and the post type */
   posts?: Maybe<TagToPostConnection>;
+  /** The Yoast SEO data of the Tags taxonomy. */
+  seo?: Maybe<TaxonomySeo>;
   /** An alphanumeric identifier for the object unique to its type. */
   slug?: Maybe<Scalars['String']>;
   /**
@@ -7490,6 +7950,8 @@ export type TagConnectionPageInfo = {
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -7537,6 +7999,8 @@ export type TagToContentNodeConnectionPageInfo = ContentNodeConnectionPageInfo &
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -7610,6 +8074,8 @@ export type TagToPostConnectionPageInfo = PageInfo & PostConnectionPageInfo & Wp
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -7769,6 +8235,8 @@ export type TaxonomyConnectionPageInfo = {
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -7790,6 +8258,34 @@ export enum TaxonomyIdTypeEnum {
   /** The name of the taxonomy */
   Name = 'NAME'
 }
+
+export type TaxonomySeo = {
+  __typename?: 'TaxonomySEO';
+  breadcrumbs?: Maybe<Array<Maybe<SeoPostTypeBreadcrumbs>>>;
+  canonical?: Maybe<Scalars['String']>;
+  cornerstone?: Maybe<Scalars['Boolean']>;
+  focuskw?: Maybe<Scalars['String']>;
+  fullHead?: Maybe<Scalars['String']>;
+  metaDesc?: Maybe<Scalars['String']>;
+  metaKeywords?: Maybe<Scalars['String']>;
+  metaRobotsNofollow?: Maybe<Scalars['String']>;
+  metaRobotsNoindex?: Maybe<Scalars['String']>;
+  opengraphAuthor?: Maybe<Scalars['String']>;
+  opengraphDescription?: Maybe<Scalars['String']>;
+  opengraphImage?: Maybe<MediaItem>;
+  opengraphModifiedTime?: Maybe<Scalars['String']>;
+  opengraphPublishedTime?: Maybe<Scalars['String']>;
+  opengraphPublisher?: Maybe<Scalars['String']>;
+  opengraphSiteName?: Maybe<Scalars['String']>;
+  opengraphTitle?: Maybe<Scalars['String']>;
+  opengraphType?: Maybe<Scalars['String']>;
+  opengraphUrl?: Maybe<Scalars['String']>;
+  schema?: Maybe<SeoTaxonomySchema>;
+  title?: Maybe<Scalars['String']>;
+  twitterDescription?: Maybe<Scalars['String']>;
+  twitterImage?: Maybe<MediaItem>;
+  twitterTitle?: Maybe<Scalars['String']>;
+};
 
 /** Connection between the Taxonomy type and the ContentType type */
 export type TaxonomyToContentTypeConnection = Connection & ContentTypeConnection & {
@@ -7820,6 +8316,8 @@ export type TaxonomyToContentTypeConnectionPageInfo = ContentTypeConnectionPageI
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -7932,6 +8430,8 @@ export type TermNodeConnectionPageInfo = {
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -7979,6 +8479,8 @@ export type TermNodeToEnqueuedScriptConnectionPageInfo = EnqueuedScriptConnectio
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -8012,6 +8514,8 @@ export type TermNodeToEnqueuedStylesheetConnectionPageInfo = EnqueuedStylesheetC
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -8087,6 +8591,8 @@ export type ThemeConnectionPageInfo = {
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -8517,6 +9023,8 @@ export type User = Commenter & DatabaseIdentifier & Node & UniformResourceIdenti
   revisions?: Maybe<UserToRevisionsConnection>;
   /** Connection between the User type and the UserRole type */
   roles?: Maybe<UserToUserRoleConnection>;
+  /** The Yoast SEO data of a user */
+  seo?: Maybe<SeoUser>;
   /** The slug for the user. This field is equivalent to WP_User-&gt;user_nicename */
   slug?: Maybe<Scalars['String']>;
   /** The unique resource identifier path */
@@ -8643,6 +9151,8 @@ export type UserConnectionPageInfo = {
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -8704,6 +9214,8 @@ export type UserRoleConnectionPageInfo = {
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -8718,6 +9230,10 @@ export enum UserRoleEnum {
   Contributor = 'CONTRIBUTOR',
   /** User role with specific capabilities */
   Editor = 'EDITOR',
+  /** User role with specific capabilities */
+  SeoEditor = 'SEO_EDITOR',
+  /** User role with specific capabilities */
+  SeoManager = 'SEO_MANAGER',
   /** User role with specific capabilities */
   Subscriber = 'SUBSCRIBER'
 }
@@ -8751,6 +9267,8 @@ export type UserToCommentConnectionPageInfo = CommentConnectionPageInfo & PageIn
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -8846,6 +9364,8 @@ export type UserToEnqueuedScriptConnectionPageInfo = EnqueuedScriptConnectionPag
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -8879,6 +9399,8 @@ export type UserToEnqueuedStylesheetConnectionPageInfo = EnqueuedStylesheetConne
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -8912,6 +9434,8 @@ export type UserToMediaItemConnectionPageInfo = MediaItemConnectionPageInfo & Pa
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -8991,6 +9515,8 @@ export type UserToPageConnectionPageInfo = PageConnectionPageInfo & PageInfo & W
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -9070,6 +9596,8 @@ export type UserToPostConnectionPageInfo = PageInfo & PostConnectionPageInfo & W
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -9169,6 +9697,8 @@ export type UserToRevisionsConnectionPageInfo = ContentNodeConnectionPageInfo & 
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -9242,6 +9772,8 @@ export type UserToUserRoleConnectionPageInfo = PageInfo & UserRoleConnectionPage
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -9296,6 +9828,8 @@ export type WpPageInfo = {
   hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>;
 };
@@ -9311,10 +9845,12 @@ export type WritingSettings = {
   useSmilies?: Maybe<Scalars['Boolean']>;
 };
 
-export type GetPostsQueryVariables = Exact<{ [key: string]: never; }>;
+export type HomePageQueryVariables = Exact<{
+  id?: InputMaybe<Scalars['ID']>;
+}>;
 
 
-export type GetPostsQuery = { __typename?: 'RootQuery', posts?: { __typename?: 'RootQueryToPostConnection', nodes: Array<{ __typename?: 'Post', title?: string | null, excerpt?: string | null, slug?: string | null, categories?: { __typename?: 'PostToCategoryConnection', nodes: Array<{ __typename?: 'Category', name?: string | null, categoryId?: number | null, slug?: string | null }> } | null, featuredImage?: { __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge', node: { __typename?: 'MediaItem', mediaItemUrl?: string | null, altText?: string | null, mediaDetails?: { __typename?: 'MediaDetails', sizes?: Array<{ __typename?: 'MediaSize', height?: string | null, width?: string | null, name?: string | null } | null> | null } | null } } | null }> } | null };
+export type HomePageQuery = { __typename?: 'RootQuery', page?: { __typename?: 'Page', homePage?: { __typename?: 'Page_Homepage', fieldGroupName?: string | null, hero?: { __typename?: 'Page_Homepage_Hero', button?: string | null, description?: string | null, fieldGroupName?: string | null, headline?: string | null, subheadline?: string | null, image?: { __typename?: 'MediaItem', altText?: string | null, link?: string | null } | null } | null } | null, seo?: { __typename?: 'PostTypeSEO', title?: string | null, metaDesc?: string | null } | null } | null };
 
 
-export const GetPostsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getPosts"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"posts"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"nodes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"categories"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"nodes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"categoryId"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"excerpt"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"featuredImage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"node"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"mediaItemUrl"}},{"kind":"Field","name":{"kind":"Name","value":"altText"}},{"kind":"Field","name":{"kind":"Name","value":"mediaDetails"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"sizes"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"include"},"value":{"kind":"EnumValue","value":"MEDIUM_LARGE"}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"name"}}]}}]}}]}}]}}]}}]}}]}}]} as unknown as DocumentNode<GetPostsQuery, GetPostsQueryVariables>;
+export const HomePageDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"homePage"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}},"defaultValue":{"kind":"StringValue","value":"home","block":false}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"page"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}},{"kind":"Argument","name":{"kind":"Name","value":"idType"},"value":{"kind":"EnumValue","value":"URI"}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"homePage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"fieldGroupName"}},{"kind":"Field","name":{"kind":"Name","value":"hero"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"button"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"fieldGroupName"}},{"kind":"Field","name":{"kind":"Name","value":"headline"}},{"kind":"Field","name":{"kind":"Name","value":"subheadline"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"altText"}},{"kind":"Field","name":{"kind":"Name","value":"link"}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"seo"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"metaDesc"}}]}}]}}]}}]} as unknown as DocumentNode<HomePageQuery, HomePageQueryVariables>;

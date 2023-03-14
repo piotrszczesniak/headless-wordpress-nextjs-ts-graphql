@@ -13,7 +13,8 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel or swc plugin for production.
  */
 const documents = {
-    "\n  query homePage($id: ID = \"home\") {\n    page(id: $id, idType: URI) {\n      homePage {\n        fieldGroupName\n        hero {\n          button\n          description\n          fieldGroupName\n          headline\n          subheadline\n          image {\n            altText\n            link\n          }\n        }\n      }\n      seo {\n        title\n        metaDesc\n      }\n    }\n  }\n": types.HomePageDocument,
+    "\n  query homePage($id: ID = \"home\") {\n    page(id: $id, idType: URI) {\n      homePage {\n        fieldGroupName\n        hero {\n          button\n          description\n          fieldGroupName\n          headline\n          subheadline\n          image {\n            altText\n            sourceUrl\n          }\n        }\n      }\n      seo {\n        title\n        metaDesc\n      }\n    }\n  }\n": types.HomePageDocument,
+    "\n  query mainMenu($id: ID = \"Main Menu\") {\n    menu(id: $id, idType: NAME) {\n      name\n      menuItems {\n        edges {\n          node {\n            label\n            uri\n          }\n        }\n      }\n    }\n  }\n": types.MainMenuDocument,
 };
 
 /**
@@ -33,7 +34,11 @@ export function graphql(source: string): unknown;
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  query homePage($id: ID = \"home\") {\n    page(id: $id, idType: URI) {\n      homePage {\n        fieldGroupName\n        hero {\n          button\n          description\n          fieldGroupName\n          headline\n          subheadline\n          image {\n            altText\n            link\n          }\n        }\n      }\n      seo {\n        title\n        metaDesc\n      }\n    }\n  }\n"): (typeof documents)["\n  query homePage($id: ID = \"home\") {\n    page(id: $id, idType: URI) {\n      homePage {\n        fieldGroupName\n        hero {\n          button\n          description\n          fieldGroupName\n          headline\n          subheadline\n          image {\n            altText\n            link\n          }\n        }\n      }\n      seo {\n        title\n        metaDesc\n      }\n    }\n  }\n"];
+export function graphql(source: "\n  query homePage($id: ID = \"home\") {\n    page(id: $id, idType: URI) {\n      homePage {\n        fieldGroupName\n        hero {\n          button\n          description\n          fieldGroupName\n          headline\n          subheadline\n          image {\n            altText\n            sourceUrl\n          }\n        }\n      }\n      seo {\n        title\n        metaDesc\n      }\n    }\n  }\n"): (typeof documents)["\n  query homePage($id: ID = \"home\") {\n    page(id: $id, idType: URI) {\n      homePage {\n        fieldGroupName\n        hero {\n          button\n          description\n          fieldGroupName\n          headline\n          subheadline\n          image {\n            altText\n            sourceUrl\n          }\n        }\n      }\n      seo {\n        title\n        metaDesc\n      }\n    }\n  }\n"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "\n  query mainMenu($id: ID = \"Main Menu\") {\n    menu(id: $id, idType: NAME) {\n      name\n      menuItems {\n        edges {\n          node {\n            label\n            uri\n          }\n        }\n      }\n    }\n  }\n"): (typeof documents)["\n  query mainMenu($id: ID = \"Main Menu\") {\n    menu(id: $id, idType: NAME) {\n      name\n      menuItems {\n        edges {\n          node {\n            label\n            uri\n          }\n        }\n      }\n    }\n  }\n"];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};

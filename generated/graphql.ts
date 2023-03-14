@@ -2730,6 +2730,8 @@ export enum MediaItemSizeEnum {
   Medium = 'MEDIUM',
   /** MediaItem with the medium_large size */
   MediumLarge = 'MEDIUM_LARGE',
+  /** MediaItem with the post-thumbnail size */
+  PostThumbnail = 'POST_THUMBNAIL',
   /** MediaItem with the thumbnail size */
   Thumbnail = 'THUMBNAIL',
   /** MediaItem with the 1536x1536 size */
@@ -3060,7 +3062,7 @@ export enum MenuItemNodeIdTypeEnum {
 }
 
 /** Deprecated in favor of MenuItemLinkeable Interface */
-export type MenuItemObjectUnion = Category | Page | Post | Tag;
+export type MenuItemObjectUnion = Category | Page | Post | PostFormat | Tag;
 
 /** Connection between the MenuItem type and the Menu type */
 export type MenuItemToMenuConnectionEdge = Edge & MenuConnectionEdge & OneToOneConnection & {
@@ -3129,8 +3131,10 @@ export type MenuItemToMenuItemLinkableConnectionEdge = Edge & MenuItemLinkableCo
 
 /** Registered menu locations */
 export enum MenuLocationEnum {
-  /** Empty menu location */
-  Empty = 'EMPTY'
+  /** Put the menu in the footer location */
+  Footer = 'FOOTER',
+  /** Put the menu in the primary location */
+  Primary = 'PRIMARY'
 }
 
 /** The Type of Identifier used to fetch a single node. Default is "ID". To be used along with the "id" field. */
@@ -4322,7 +4326,7 @@ export type PostConnectionPageInfo = {
 };
 
 /** The postFormat type */
-export type PostFormat = DatabaseIdentifier & Node & TermNode & UniformResourceIdentifiable & {
+export type PostFormat = DatabaseIdentifier & MenuItemLinkable & Node & TermNode & UniformResourceIdentifiable & {
   __typename?: 'PostFormat';
   /** Connection between the PostFormat type and the ContentNode type */
   contentNodes?: Maybe<PostFormatToContentNodeConnection>;
@@ -8322,34 +8326,6 @@ export type TaxonomyToContentTypeConnectionPageInfo = ContentTypeConnectionPageI
   startCursor?: Maybe<Scalars['String']>;
 };
 
-/** The template assigned to the node */
-export type Template_Blank = ContentTemplate & {
-  __typename?: 'Template_Blank';
-  /** The name of the template */
-  templateName?: Maybe<Scalars['String']>;
-};
-
-/** The template assigned to the node */
-export type Template_PageLargeHeader = ContentTemplate & {
-  __typename?: 'Template_PageLargeHeader';
-  /** The name of the template */
-  templateName?: Maybe<Scalars['String']>;
-};
-
-/** The template assigned to the node */
-export type Template_PageNoSeparators = ContentTemplate & {
-  __typename?: 'Template_PageNoSeparators';
-  /** The name of the template */
-  templateName?: Maybe<Scalars['String']>;
-};
-
-/** The template assigned to the node */
-export type Template_SinglePostNoSeparators = ContentTemplate & {
-  __typename?: 'Template_SinglePostNoSeparators';
-  /** The name of the template */
-  templateName?: Maybe<Scalars['String']>;
-};
-
 /** Terms are nodes within a Taxonomy, used to group and relate other nodes. */
 export type TermNode = {
   /** The number of objects connected to the object */
@@ -9850,7 +9826,15 @@ export type HomePageQueryVariables = Exact<{
 }>;
 
 
-export type HomePageQuery = { __typename?: 'RootQuery', page?: { __typename?: 'Page', homePage?: { __typename?: 'Page_Homepage', fieldGroupName?: string | null, hero?: { __typename?: 'Page_Homepage_Hero', button?: string | null, description?: string | null, fieldGroupName?: string | null, headline?: string | null, subheadline?: string | null, image?: { __typename?: 'MediaItem', altText?: string | null, link?: string | null } | null } | null } | null, seo?: { __typename?: 'PostTypeSEO', title?: string | null, metaDesc?: string | null } | null } | null };
+export type HomePageQuery = { __typename?: 'RootQuery', page?: { __typename?: 'Page', homePage?: { __typename?: 'Page_Homepage', fieldGroupName?: string | null, hero?: { __typename?: 'Page_Homepage_Hero', button?: string | null, description?: string | null, fieldGroupName?: string | null, headline?: string | null, subheadline?: string | null, image?: { __typename?: 'MediaItem', altText?: string | null, sourceUrl?: string | null } | null } | null } | null, seo?: { __typename?: 'PostTypeSEO', title?: string | null, metaDesc?: string | null } | null } | null };
+
+export type MainMenuQueryVariables = Exact<{
+  id?: InputMaybe<Scalars['ID']>;
+}>;
 
 
-export const HomePageDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"homePage"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}},"defaultValue":{"kind":"StringValue","value":"home","block":false}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"page"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}},{"kind":"Argument","name":{"kind":"Name","value":"idType"},"value":{"kind":"EnumValue","value":"URI"}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"homePage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"fieldGroupName"}},{"kind":"Field","name":{"kind":"Name","value":"hero"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"button"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"fieldGroupName"}},{"kind":"Field","name":{"kind":"Name","value":"headline"}},{"kind":"Field","name":{"kind":"Name","value":"subheadline"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"altText"}},{"kind":"Field","name":{"kind":"Name","value":"link"}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"seo"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"metaDesc"}}]}}]}}]}}]} as unknown as DocumentNode<HomePageQuery, HomePageQueryVariables>;
+export type MainMenuQuery = { __typename?: 'RootQuery', menu?: { __typename?: 'Menu', name?: string | null, menuItems?: { __typename?: 'MenuToMenuItemConnection', edges: Array<{ __typename?: 'MenuToMenuItemConnectionEdge', node: { __typename?: 'MenuItem', label?: string | null, uri?: string | null } }> } | null } | null };
+
+
+export const HomePageDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"homePage"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}},"defaultValue":{"kind":"StringValue","value":"home","block":false}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"page"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}},{"kind":"Argument","name":{"kind":"Name","value":"idType"},"value":{"kind":"EnumValue","value":"URI"}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"homePage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"fieldGroupName"}},{"kind":"Field","name":{"kind":"Name","value":"hero"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"button"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"fieldGroupName"}},{"kind":"Field","name":{"kind":"Name","value":"headline"}},{"kind":"Field","name":{"kind":"Name","value":"subheadline"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"altText"}},{"kind":"Field","name":{"kind":"Name","value":"sourceUrl"}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"seo"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"metaDesc"}}]}}]}}]}}]} as unknown as DocumentNode<HomePageQuery, HomePageQueryVariables>;
+export const MainMenuDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"mainMenu"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}},"defaultValue":{"kind":"StringValue","value":"Main Menu","block":false}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"menu"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}},{"kind":"Argument","name":{"kind":"Name","value":"idType"},"value":{"kind":"EnumValue","value":"NAME"}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"menuItems"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"edges"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"node"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"uri"}}]}}]}}]}}]}}]}}]} as unknown as DocumentNode<MainMenuQuery, MainMenuQueryVariables>;

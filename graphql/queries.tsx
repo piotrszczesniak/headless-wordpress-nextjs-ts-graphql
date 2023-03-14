@@ -24,3 +24,19 @@ export const GET_HOME_PAGE = gql`
     }
   }
 `;
+
+export const GET_MAIN_MENU = gql`
+  query mainMenu($id: ID = "Main Menu") {
+    menu(id: $id, idType: NAME) {
+      name
+      menuItems {
+        edges {
+          node {
+            label
+            uri
+          }
+        }
+      }
+    }
+  }
+`;

@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ['latin'] });
 
 type HomePageProps = {
   home: Page_Homepage;
-  seo: PostTypeSeo;
+  seo: PostTypeSeo; // !TODO - need help with this one as it throws errors
 };
 
 export default function Home({ home, seo }: HomePageProps) {
